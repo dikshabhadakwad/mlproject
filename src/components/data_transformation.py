@@ -13,10 +13,16 @@ from src.logger import logging
 import os
 
 from src.utils import save_object
-
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "..")
+)
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifacts',"proprocessor.pkl")
+    preprocessor_obj_file_path = os.path.join(
+    PROJECT_ROOT,
+    "artifacts",
+    "preprocessor.pkl"
+)
 
 class DataTransformation:
     def __init__(self):
@@ -122,5 +128,3 @@ class DataTransformation:
             )
         except Exception as e:
             raise CustomException(e,sys)
-
-
